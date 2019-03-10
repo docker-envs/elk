@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:6.6.1
+    container_name: filebeat
+    volumes:
+      - ./example.log:/var/log/command.log:ro
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+        #       - ./registry:/usr/share/filebeat/data/registry
+

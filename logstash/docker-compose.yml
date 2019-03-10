@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  logstash:
+    image: docker.elastic.co/logstash/logstash:6.6.1
+    container_name: "logstash"
+    environment:
+      - LS_SETTINGS_DIR=/usr/share/logstash/config
+    volumes:
+      - ./config:/usr/share/logstash/config
+      - ./pipeline:/usr/share/logstash/pipeline
+      - ./logs:/usr/share/logstash/logs
+      - ./example.log:/var/log/example.log
+    ports:
+        - "5045:9600"
+        - "5044:5044"
+
+

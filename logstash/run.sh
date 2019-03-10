@@ -1,0 +1,1 @@
+docker run --name logstash -v $(pwd)/logstash.yml:/usr/share/logstash/config/logstash.yml  -v $(pwd)/logstash.conf:/usr/share/logstash/config/logstash.conf -v $(pwd)/example.log:/var/log/example.log -p 5045:5045 -p 5044:5044 docker.elastic.co/logstash/logstash:6.6.1 logstash -f /usr/share/logstash/config/logstash.conf
